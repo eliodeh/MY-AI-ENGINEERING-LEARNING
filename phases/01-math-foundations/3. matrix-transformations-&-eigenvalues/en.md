@@ -1,0 +1,4 @@
+This lesson builds the geometric foundation for PCA (Phase 2) and neural network weight analysis. The eigenvalue/eigenvector code built here is the same algorithm that powers dimensionality reduction, spectral clustering, and stability analysis in production ML systems.
+
+
+A matrix is a transformation. @ composes transformations. * is just position-matching (different operation!). Transpose flips dimensions (crucial in backprop). Determinant tells you if a matrix loses information (det=0 = singular = no inverse). Inverse undoes a transformation. Identity does nothing (ResNets use it). Broadcasting stretches bias across batch dimensions automatically. Together, these primitives assemble into y = relu(W @ x + b) — a neural network layer. Stack 100 of them and you have a deep network
