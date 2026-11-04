@@ -1,0 +1,19 @@
+def f(point):
+    x, y = point
+    return (x - 3) ** 2 + (y + 1) ** 2
+
+def grad_f(point):
+    x, y = point
+    return [2 * (x - 3), 2 * (y + 1)]
+
+point = [0.0, 0.0]
+lr = 0.1
+
+for step in range(30):
+    g = grad_f(point)
+    point = [p - lr * gi for p, gi in zip(point, g)]
+    if step % 5 == 0 or step == 29:
+        print(f"step {step:2d}  point=({point[0]:7.4f}, {point[1]:7.4f})  f={f(point):.6f}")
+
+print(f"\nMinimum found: ({point[0]:.4f}, {point[1]:.4f})")
+print(f"Expected:      (3.0000, -1.0000)")
