@@ -1,17 +1,13 @@
-import math
-import random
+import random, math
+import matplotlib.pyplot as plt
 
-def factorial(n):
-    result = 1
-    for i in range(2, n + 1):
-        result *= i
-    return result
+def sample_exponential(lam, n):
+    return [-math.log(1 - random.random()) / lam for _ in range(n)]
 
-def combinations(n, k):
-    return factorial(n) // (factorial(k) * factorial(n - k))
+lam = 1.5
+samples = sample_exponential(lam, 10_000)
 
-def conditional_probability(p_a_and_b, p_b):
-    return p_a_and_b / p_b
-
-p_king_given_face = conditional_probability(4/52, 12/52)
-print(f"P(King | Face card) = {p_king_given_face:.4f}")
+xs = [i / 100 for i in range(0, 500)]
+plt.hist(samples, bins=50, density=True, alpha=0.6)
+plt.plot(xs, [lam * math.exp(-lam * x) for x in xs])
+plt.show()
