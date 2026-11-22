@@ -1,0 +1,1 @@
+Distance metrics define what "similar" means—L1/L2 for vectors, cosine for direction, Mahalanobis for correlated features, Jaccard for sets, edit distance for strings, and KL/Wasserstein for distributions—and choosing the wrong one breaks everything downstream.
